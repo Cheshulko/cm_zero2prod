@@ -40,4 +40,4 @@ SKIP_DOCKER=true ./scripts/init_db.sh
 
 -- Requests
 
-curl -d "name=john6&email=john6.doe@gmail.com" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:8000/subscriptions
+curl -d "name=john8&email=john8.doe@gmail.com" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:8000/subscriptions
