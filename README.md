@@ -12,6 +12,14 @@ cargo watch -x check -x test -x run
 RUST_LOG=debug cargo run
 RUST_LOG=trace cargo run
 
+-- Docker 
+
+# Build a docker image tagged as "zero2prod" according to the recipe
+# specified in `Dockerfile`
+docker build --tag zero2prod --file Dockerfile .
+docker builder prune
+docker run -p 8000:8000 zero2prod
+
 -- Tests
 
 cargo install bunyan
@@ -23,6 +31,7 @@ cargo test
 
 chmod +x scripts/init_db.sh
 cargo install --version=0.5.7 sqlx-cli --no-default-features --features postgres
+cargo sqlx prepare -- --lib
 
 -- psql install 
 
