@@ -18,7 +18,7 @@ RUST_LOG=trace cargo run
 # specified in `Dockerfile`
 docker build --tag zero2prod --file Dockerfile .
 docker builder prune
-docker run -p 8000:8000 zero2prod
+docker run -p 8000:8000 --net=bridge --detach zero2prod 
 
 -- Tests
 
@@ -49,4 +49,4 @@ SKIP_DOCKER=true ./scripts/init_db.sh
 
 -- Requests
 
-curl -d "name=john8&email=john8.doe@gmail.com" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:8000/subscriptions
+curl -d "name=john11&email=john11.doe@gmail.com" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:8000/subscriptions --verbose
