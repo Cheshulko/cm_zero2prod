@@ -1,9 +1,9 @@
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct SubscriberEmail(String);
 
 impl SubscriberEmail {
     pub fn parse(s: String) -> Result<SubscriberEmail, String> {
-        unimplemented!();
+        Ok(Self(s))
         // if validate_email(&s) {
         //     Ok(Self(s))
         // } else {
